@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shree Sales – Namkeen, Sweets & Snacks | Sangli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --brown: #2b1207;
+      --gold: #f0b429;
+      --gold-light: #fde68a;
+      --gold-dim: #c8920e;
+      --cream: #fdf6e3;
+      --white: #ffffff;
+      --text-dark: #1a0a02;
+      --text-mid: #5a3a1a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-dark); }
+
+    nav {
+      background: var(--brown);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .nav-logo img { height: 44px; width: 44px; border-radius: 50%; object-fit: contain; border: 2px solid var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--gold-light); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero {
+      background: var(--brown);
+      padding: 90px 5% 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-text { flex: 1; min-width: 280px; }
+    .hero-eyebrow { color: var(--gold); font-size: 0.8rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; }
+    .hero-title { font-family: 'Playfair Display', serif; color: var(--white); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.2rem; }
+    .hero-title span { color: var(--gold); }
+    .hero-sub { color: var(--gold-light); font-size: 1rem; line-height: 1.7; max-width: 480px; margin-bottom: 2rem; }
+    .btn-primary { display: inline-block; background: var(--gold); color: var(--brown); font-weight: 700; padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .hero-badge img { width: 180px; height: 180px; border-radius: 50%; object-fit: contain; border: 3px solid var(--gold); }
+
+    /* PRODUCTS */
+    .products { padding: 80px 5%; background: var(--cream); }
+    .section-label { text-align: center; font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.5rem; }
+    .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--brown); font-weight: 900; margin-bottom: 0.8rem; }
+    .section-desc { text-align: center; color: var(--text-mid); font-size: 0.95rem; max-width: 520px; margin: 0 auto 3rem; line-height: 1.7; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: var(--brown);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .product-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+    .product-thumb {
+      width: 100%;
+      height: 180px;
+      background: rgba(240,180,41,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      border-bottom: 1px solid rgba(240,180,41,0.15);
+      overflow: hidden;
+    }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .product-info { padding: 1.1rem 1.2rem; }
+    .product-name { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .product-desc { color: var(--gold-light); font-size: 0.8rem; line-height: 1.5; }
+    .product-arrow { color: var(--gold-dim); font-size: 0.8rem; margin-top: 0.6rem; }
+
+    .catalog-note { text-align: center; margin-top: 2.5rem; color: var(--text-mid); font-size: 0.9rem; }
+    .catalog-note a { color: var(--gold-dim); font-weight: 600; text-decoration: none; }
+    .catalog-note a:hover { text-decoration: underline; }
+
+    /* WHY */
+    .why { background: var(--brown); padding: 80px 5%; }
+    .why .section-title { color: var(--gold); }
+    .why .section-desc { color: var(--gold-light); }
+    .why .section-label { color: rgba(240,180,41,0.6); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+    .why-item { text-align: center; padding: 1.5rem 1rem; }
+    .why-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .why-title { color: var(--gold); font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem; }
+    .why-text { color: var(--gold-light); font-size: 0.85rem; line-height: 1.6; }
+
+    /* CONTACT */
+    .contact { padding: 80px 5%; background: var(--cream); }
+    .contact-wrap { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-info h3 { font-family: 'Playfair Display', serif; color: var(--brown); font-size: 1.6rem; margin-bottom: 1rem; }
+    .contact-info p { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1rem; }
+    .contact-detail .icon { font-size: 1.1rem; margin-top: 2px; flex-shrink: 0; }
+    .contact-detail span { font-size: 0.9rem; color: var(--text-mid); line-height: 1.5; }
+    .contact-form { background: var(--brown); padding: 2rem; border-radius: 8px; border: 1.5px solid var(--gold); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; color: var(--gold-light); font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(240,180,41,0.3); border-radius: 4px; padding: 0.7rem 0.9rem; color: var(--white); font-size: 0.9rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(253,230,138,0.35); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+    .form-group select option { background: var(--brown); }
+    .form-group textarea { height: 110px; resize: vertical; }
+    .btn-submit { width: 100%; background: var(--gold); color: var(--brown); font-weight: 700; font-size: 0.95rem; padding: 0.85rem; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; font-family: 'Inter', sans-serif; }
+    .btn-submit:hover { background: var(--gold-light); }
+    .form-success { display: none; text-align: center; color: var(--gold); font-size: 1rem; padding: 1rem; font-weight: 600; }
+
+    footer { background: var(--brown); border-top: 2px solid var(--gold); text-align: center; padding: 2rem 5%; }
+    footer p { color: var(--gold-light); font-size: 0.82rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; font-weight: 900; margin-bottom: 0.4rem; }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero { padding: 60px 5%; text-align: center; flex-direction: column; align-items: center; }
+      .hero-sub { margin: 0 auto 2rem; }
+      .contact-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><img src="logo.png" alt="Shree Sales Logo"/></div>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Sangli's Trusted FMCG Distributor</div>
+    <h1 class="hero-title">Namkeen, Sweets<br><span>& Snacks</span></h1>
+    <p class="hero-sub">Shree Sales brings you a wide range of quality FMCG products — from crispy khakra to delicious sweets and snacks. Serving retailers, wholesalers, and businesses across Sangli.</p>
+    <a href="#products" class="btn-primary">Browse Products →</a>
+  </div>
+  <div class="hero-badge">
+    <img src="logo.png" alt="Shree Sales Logo"/>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">Our Products</h2>
+  <p class="section-desc">Click any product to view our full catalogue. Contact us for bulk pricing and availability.</p>
+
+  <div class="product-grid">
+
+    <!-- KHAKRA -->
+    <a href="khakra.html" class="product-card">
+      <div class="product-thumb">🫓</div>
+      <div class="product-info">
+        <div class="product-name">Khakra</div>
+        <div class="product-desc">Crispy, thin and light — available in multiple flavours and brands.</div>
+        <div class="product-arrow">View Catalogue →</div>
+      </div>
+    </a>
+
+    <!-- COIN KHAKRA -->
+    <a href="coin-khakra.html" class="product-card">
+      <div class="product-thumb">🪙</div>
+      <div class="product-info">
+        <div class="product-name">Coin Khakra</div>
+        <div class="product-desc">Bite-sized coin khakra — perfect for snacking, available in many variants.</div>
+        <div class="product-arrow">View Catalogue →</div>
+      </div>
+    </a>
+
+    <!-- NANKATAI & WHEAT BISCUITS -->
+    <a href="biscuits.html" class="product-card">
+      <div class="product-thumb">🍪</div>
+      <div class="product-info">
+        <div class="product-name">Nankatai & Wheat Biscuits</div>
+        <div class="product-desc">Traditional nankatai and healthy wheat biscuits from top brands.</div>
+        <div class="product-arrow">View Catalogue →</div>
+      </div>
+    </a>
+
+    <!-- SOAN PAPDI & BADAM HALWA -->
+    <a href="sweets.html" class="product-card">
+      <div class="product-thumb">🍬</div>
+      <div class="product-info">
+        <div class="product-name">Soan Papdi & Badam Halwa</div>
+        <div class="product-desc">Classic Indian sweets — soan papdi and rich badam halwa in various pack sizes.</div>
+        <div class="product-arrow">View Catalogue →</div>
+      </div>
+    </a>
+
+    <!-- KERALA CHIPS -->
+    <a href="kerala-chips.html" class="product-card">
+      <div class="product-thumb">🍟</div>
+      <div class="product-info">
+        <div class="product-name">Kerala Chips</div>
+        <div class="product-desc">Authentic Kerala-style banana and tapioca chips — crispy and flavourful.</div>
+        <div class="product-arrow">View Catalogue →</div>
+      </div>
+    </a>
+
+  </div>
+
+  <p class="catalog-note">Don't see what you're looking for? <a href="#contact">Contact us</a> for our full product list and bulk pricing.</p>
+</section>
+
+<section class="why" id="why">
+  <div class="section-label">Why Shree Sales</div>
+  <h2 class="section-title">Trusted by Businesses in Sangli</h2>
+  <p class="section-desc">We've built our reputation on reliability, variety, and fair pricing across the FMCG space.</p>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-icon">📦</div>
+      <div class="why-title">Wide Catalogue</div>
+      <div class="why-text">Hundreds of products across namkeen, sweets and snacks under one roof.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">Reliable Supply</div>
+      <div class="why-text">Consistent stock availability so your business never runs short.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">💰</div>
+      <div class="why-title">Competitive Pricing</div>
+      <div class="why-text">Best rates for retailers and wholesalers across all categories.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📍</div>
+      <div class="why-title">Based in Sangli</div>
+      <div class="why-text">Local presence means faster delivery and easier communication.</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-label">Get in Touch</div>
+  <h2 class="section-title">Contact Us</h2>
+  <p class="section-desc">Send us your enquiry and we'll get back to you with availability and pricing.</p>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <h3>Shree Sales</h3>
+      <p>FMCG distributor of namkeen, sweets, and snacks. Serving retailers and wholesalers in Sangli and surrounding areas.</p>
+      <div class="contact-detail">
+        <span class="icon">📍</span>
+        <span>Sangli, Maharashtra, India</span>
+      </div>
+      <div class="contact-detail">
+        <span class="icon">📞</span>
+        <span>+91 XXXXX XXXXX<br><small>(Update with your number)</small></span>
+      </div>
+      <div class="contact-detail">
+        <span class="icon">⏰</span>
+        <span>Mon – Sat: 9:00 AM – 7:00 PM</span>
+      </div>
+    </div>
+    <div class="contact-form">
+      <form id="enquiryForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE"/>
+        <input type="hidden" name="subject" value="New Enquiry – Shree Sales Website"/>
+        <input type="hidden" name="redirect" value="false"/>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="e.g. Ramesh Patil" required/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="+91 98765 43210" required/>
+        </div>
+        <div class="form-group">
+          <label>Product of Interest</label>
+          <select name="product">
+            <option value="Khakra">Khakra</option>
+            <option value="Coin Khakra">Coin Khakra</option>
+            <option value="Nankatai & Wheat Biscuits">Nankatai & Wheat Biscuits</option>
+            <option value="Soan Papdi & Badam Halwa">Soan Papdi & Badam Halwa</option>
+            <option value="Kerala Chips">Kerala Chips</option>
+            <option value="Other / Mixed">Other / Mixed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us what you need — quantities, variants, etc."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Enquiry</button>
+        <div class="form-success" id="formSuccess">✅ Enquiry sent! We'll contact you shortly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Shree Sales</div>
+  <p>Namkeen · Sweets · Snacks &nbsp;|&nbsp; Sangli, Maharashtra</p>
+  <p style="margin-top:0.4rem; opacity:0.5;">© 2025 Shree Sales. All rights reserved.</p>
+</footer>
+
+<script>
+  const form = document.getElementById('enquiryForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.btn-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    const data = new FormData(form);
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    const json = await res.json();
+    if (json.success) {
+      form.reset();
+      success.style.display = 'block';
+      btn.style.display = 'none';
+    } else {
+      btn.textContent = 'Send Enquiry';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  });
+</script>
+</body>
+</html>
