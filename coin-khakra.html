@@ -3,50 +3,52 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coin Khakra – Shree Sales</title>
+  <title>Coin Khakra Catalogue – Shree Sales</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root { --brown:#2b1207; --gold:#f0b429; --gold-light:#fde68a; --gold-dim:#c8920e; --cream:#fdf6e3; --white:#ffffff; --text-dark:#1a0a02; --text-mid:#5a3a1a; }
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--text-dark); }
+
     nav { background:var(--brown); position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 5%; height:64px; border-bottom:2px solid var(--gold); }
     .nav-logo img { height:44px; width:44px; border-radius:50%; object-fit:contain; border:2px solid var(--gold); }
     .nav-links { display:flex; gap:2rem; list-style:none; }
     .nav-links a { color:var(--gold-light); text-decoration:none; font-size:0.9rem; font-weight:500; transition:color 0.2s; }
     .nav-links a:hover { color:var(--gold); }
+
     .page-header { background:var(--brown); padding:50px 5% 40px; text-align:center; border-bottom:2px solid var(--gold); }
     .back-link { color:var(--gold-dim); text-decoration:none; font-size:0.85rem; display:inline-block; margin-bottom:1rem; }
     .back-link:hover { color:var(--gold); }
     .page-header h1 { font-family:'Playfair Display',serif; color:var(--gold); font-size:clamp(2rem,4vw,3rem); font-weight:900; }
     .page-header p { color:var(--gold-light); margin-top:0.5rem; font-size:0.95rem; }
+
     .products-section { padding:60px 5%; max-width:1200px; margin:0 auto; }
 
-    /* =============================================
-       HOW TO ADD PRODUCTS:
-       1. Copy one .product-card block below
-       2. Change the product name and description
-       3. To add image, replace the emoji div with:
-          <div class="product-thumb"><img src="images/yourimage.jpg" alt="Product"/></div>
-       4. Save and re-upload to GitHub
-       ============================================= */
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.5rem; }
 
-    .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1.5rem; }
-    .product-card { background:var(--white); border-radius:8px; overflow:hidden; border:1.5px solid #e8d9b5; transition:transform 0.2s,box-shadow 0.2s; }
+    .product-card { background:var(--white); border-radius:8px; overflow:hidden; border:1.5px solid #e8d9b5; transition:transform 0.2s, box-shadow 0.2s; }
     .product-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(43,18,7,0.12); }
-    .product-thumb { width:100%; height:180px; background:#f5e9c8; display:flex; align-items:center; justify-content:center; font-size:3.5rem; overflow:hidden; }
+
+    .product-thumb { width:100%; height:200px; overflow:hidden; background:#f5e9c8; }
     .product-thumb img { width:100%; height:100%; object-fit:cover; }
-    .product-info { padding:1rem; }
+
+    .product-info { padding:1rem 1.1rem; }
     .product-name { font-family:'Playfair Display',serif; color:var(--brown); font-size:1.05rem; font-weight:700; margin-bottom:0.3rem; }
     .product-desc { color:var(--text-mid); font-size:0.82rem; line-height:1.5; }
+    .product-tag { display:inline-block; margin-top:0.5rem; background:var(--brown); color:var(--gold); font-size:0.72rem; font-weight:600; padding:0.2rem 0.6rem; border-radius:20px; }
+
     .enquire-btn { display:block; margin:2.5rem auto 0; background:var(--gold); color:var(--brown); font-weight:700; padding:0.85rem 2.5rem; border-radius:4px; text-decoration:none; text-align:center; font-size:0.95rem; max-width:300px; transition:background 0.2s; }
     .enquire-btn:hover { background:var(--gold-light); }
+
     footer { background:var(--brown); border-top:2px solid var(--gold); text-align:center; padding:1.5rem 5%; margin-top:4rem; }
     footer p { color:var(--gold-light); font-size:0.82rem; }
     .footer-brand { font-family:'Playfair Display',serif; color:var(--gold); font-size:1rem; font-weight:900; margin-bottom:0.3rem; }
-    @media(max-width:700px){ .nav-links{display:none;} }
+
+    @media(max-width:700px) { .nav-links { display:none; } }
   </style>
 </head>
 <body>
+
 <nav>
   <div class="nav-logo"><img src="logo.png" alt="Shree Sales Logo"/></div>
   <ul class="nav-links">
@@ -58,52 +60,125 @@
 
 <div class="page-header">
   <a href="index.html" class="back-link">← Back to Home</a>
-  <h1>🪙 Coin Khakra</h1>
-  <p>Bite-sized coin khakra in many variants</p>
+  <h1>🪙 Coin Khakra Catalogue</h1>
+  <p>12 flavours · 200g per box · Available for bulk order</p>
 </div>
 
 <div class="products-section">
   <div class="product-grid">
 
-    <!-- PRODUCT 1 — Change name, description and image -->
     <div class="product-card">
-      <div class="product-thumb">🪙</div>
+      <div class="product-thumb"><img src="images/coin-khakra-plain.png" alt="Plain Coin Khakra"/></div>
       <div class="product-info">
-        <div class="product-name">Product Name</div>
-        <div class="product-desc">Brand, weight, variant or any detail about this product.</div>
+        <div class="product-name">Plain Coin Khakra</div>
+        <div class="product-desc">Classic crispy coin khakra with a light, wholesome flavour.</div>
+        <span class="product-tag">200g per box</span>
       </div>
     </div>
 
-    <!-- PRODUCT 2 -->
     <div class="product-card">
-      <div class="product-thumb">🪙</div>
+      <div class="product-thumb"><img src="images/coin-khakra-masala.png" alt="Masala Coin Khakra"/></div>
       <div class="product-info">
-        <div class="product-name">Product Name</div>
-        <div class="product-desc">Brand, weight, variant or any detail about this product.</div>
+        <div class="product-name">Masala Coin Khakra</div>
+        <div class="product-desc">Spiced with a blend of Indian masalas — bold, flavourful and crispy.</div>
+        <span class="product-tag">200g per box</span>
       </div>
     </div>
 
-    <!-- PRODUCT 3 -->
     <div class="product-card">
-      <div class="product-thumb">🪙</div>
+      <div class="product-thumb"><img src="images/coin-khakra-methi.png" alt="Methi Coin Khakra"/></div>
       <div class="product-info">
-        <div class="product-name">Product Name</div>
-        <div class="product-desc">Brand, weight, variant or any detail about this product.</div>
+        <div class="product-name">Methi Coin Khakra</div>
+        <div class="product-desc">Made with fresh fenugreek leaves — a healthy and aromatic snack.</div>
+        <span class="product-tag">200g per box</span>
       </div>
     </div>
 
-    <!-- PRODUCT 4 -->
     <div class="product-card">
-      <div class="product-thumb">🪙</div>
+      <div class="product-thumb"><img src="images/coin-khakra-jeera.png" alt="Jeera Coin Khakra"/></div>
       <div class="product-info">
-        <div class="product-name">Product Name</div>
-        <div class="product-desc">Brand, weight, variant or any detail about this product.</div>
+        <div class="product-name">Jeera Coin Khakra</div>
+        <div class="product-desc">Lightly seasoned with cumin seeds — mildly spiced and moreish.</div>
+        <span class="product-tag">200g per box</span>
       </div>
     </div>
 
-    <!-- ADD MORE — Copy any block above and paste here -->
+    <div class="product-card">
+      <div class="product-thumb"><img src="images/coin-khakra-chat-masala.png" alt="Chat Masala Coin Khakra"/></div>
+      <div class="product-info">
+        <div class="product-name">Chat Masala Coin Khakra</div>
+        <div class="product-desc">Tangy chat masala flavour with a punchy, street-food-style taste.</div>
+        <span class="product-tag">200g per box</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb"><img src="images/coin-khakra-cheese.png" alt="Cheese Coin Khakra"/></div>
+      <div class="product-info">
+        <div class="product-name">Cheese Coin Khakra</div>
+        <div class="product-desc">Rich cheesy flavour baked into a crispy coin khakra.</div>
+        <span class="product-tag">200g per box</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb"><img src="images/coin-khakra-pavbhaji.png" alt="Pavbhaji Coin Khakra"/></div>
+      <div class="product-info">
+        <div class="product-name">Pavbhaji Coin Khakra</div>
+        <div class="product-desc">Iconic Mumbai street food flavour — spicy and tangy.</div>
+        <span class="product-tag">200g per box</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb"><img src="images/coin-khakra-periperi.png" alt="Peri Peri Coin Khakra"/></div>
+      <div class="product-info">
+        <div class="product-name">Peri Peri Coin Khakra</div>
+        <div class="product-desc">Fiery peri peri spice blend for a hot, bold kick.</div>
+        <span class="product-tag">200g per box</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb"><img src="images/coin-khakra-kurkure.png" alt="Kurkure Coin Khakra"/></div>
+      <div class="product-info">
+        <div class="product-name">Kurkure Coin Khakra</div>
+        <div class="product-desc">Extra crunchy with a masala twist — inspired by the classic flavour.</div>
+        <span class="product-tag">200g per box</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb"><img src="images/coin-khakra-panipuri.png" alt="Pani Puri Coin Khakra"/></div>
+      <div class="product-info">
+        <div class="product-name">Pani Puri Coin Khakra</div>
+        <div class="product-desc">Tangy, minty pani puri flavour — everyone's favourite chaat.</div>
+        <span class="product-tag">200g per box</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb"><img src="images/coin-khakra-manchurian.png" alt="Manchurian Coin Khakra"/></div>
+      <div class="product-info">
+        <div class="product-name">Manchurian Coin Khakra</div>
+        <div class="product-desc">Indo-Chinese manchurian flavour — sweet, spicy and addictive.</div>
+        <span class="product-tag">200g per box</span>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb"><img src="images/coin-khakra-pizza.png" alt="Pizza Coin Khakra"/></div>
+      <div class="product-info">
+        <div class="product-name">Pizza Coin Khakra</div>
+        <div class="product-desc">Italian-inspired pizza seasoning on a crispy coin khakra.</div>
+        <span class="product-tag">200g per box</span>
+      </div>
+    </div>
 
   </div>
+
+  <p style="text-align:center; color:var(--text-mid); font-size:0.78rem; margin-top:2.5rem; opacity:0.75; max-width:500px; margin-left:auto; margin-right:auto;">*Product images are for representation purposes only. Actual product packaging and appearance may vary.</p>
+
   <a href="index.html#contact" class="enquire-btn">Enquire About Coin Khakra →</a>
 </div>
 
@@ -111,5 +186,6 @@
   <div class="footer-brand">Shree Sales</div>
   <p>Namkeen · Sweets · Snacks &nbsp;|&nbsp; Sangli, Maharashtra</p>
 </footer>
+
 </body>
 </html>
